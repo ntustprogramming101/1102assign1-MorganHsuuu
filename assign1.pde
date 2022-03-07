@@ -10,6 +10,7 @@ int robotPosition_X;
 int robotPosition_Y;
 int laserPosition_X; int laserPosition_X1;
 int laserPosition_Y;
+int laserLong=0;
 
 
 void setup() {
@@ -80,9 +81,15 @@ void draw() {
   //laser
     stroke(256,0,0);
     strokeWeight(10);
-    line(laserPosition_X,laserPosition_Y+80,laserPosition_X+40,laserPosition_Y+80);
-    if(laserPosition_X <= laserPosition_X1-160){
+    line(laserPosition_X,laserPosition_Y+80,laserPosition_X+laserLong,laserPosition_Y+80);
+    if(laserLong>=-40){
+    laserLong -= 2;
+    }
+    
+     if(laserPosition_X <= laserPosition_X1-160){
       laserPosition_X+=160;
+      laserLong = 0;
+      
     }
     else{
     laserPosition_X-=2;
